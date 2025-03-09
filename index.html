@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seguimiento de Impresión</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Seguimiento de Impresión de Fotos</h1>
+    </header>
+    <main>
+        <form id="verificationForm">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" required>
+            
+            <label for="codigo">Código de Verificación:</label>
+            <input type="text" id="codigo" name="codigo" required>
+            
+            <button type="submit">Verificar</button>
+        </form>
+        
+        <div id="resultado">
+            <h2>Estado de la Impresión</h2>
+            <p id="estado">Ingrese su nombre y código para ver el estado.</p>
+            <div id="barraProgreso">
+                <div id="progreso"></div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <p>Contacto: estudio@fotografia.com | Tel: 123-456-789</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
