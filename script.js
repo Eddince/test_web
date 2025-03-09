@@ -16,14 +16,7 @@ document.getElementById('verificationForm').addEventListener('submit', async fun
 
         // Mostrar el estado del cliente
         document.getElementById('estado').textContent = `Estado: ${cliente.estado}`;
-        const barraProgreso = document.getElementById('progreso');
-        if (cliente.estado === 'Inicial') {
-            barraProgreso.style.width = '33%';
-        } else if (cliente.estado === 'En desarrollo') {
-            barraProgreso.style.width = '66%';
-        } else if (cliente.estado === 'Completada') {
-            barraProgreso.style.width = '100%';
-        }
+        
     } catch (error) {
         console.error('Error:', error);
         document.getElementById('estado').textContent = 'Cliente no encontrado.';
