@@ -10,7 +10,7 @@ document.getElementById('verificationForm').addEventListener('submit', async fun
     try {
         // Buscar el cliente en el backend
         const response = await fetch(`${API_URL}/clientes/buscar/${nombre}&${codigo}`);
-        if (!response.ok) throw new Error('Cliente no encontrado');
+        if (!response.ok) throw new Error('Error al principio');
 
         const cliente = await response.json();
 
