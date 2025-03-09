@@ -15,13 +15,13 @@ document.getElementById('verificationForm').addEventListener('submit', async fun
         const cliente = await response.json();
 
         // Mostrar el estado del cliente
-        document.getElementById('estado').textContent = `Estado: ${cliente.Estado}`;
+        document.getElementById('estado').textContent = `Estado: ${cliente.estado}`;
         const barraProgreso = document.getElementById('progreso');
-        if (cliente.Estado === 'Inicial') {
+        if (cliente.estado === 'Inicial') {
             barraProgreso.style.width = '33%';
-        } else if (cliente.Estado === 'En desarrollo') {
+        } else if (cliente.estado === 'En desarrollo') {
             barraProgreso.style.width = '66%';
-        } else if (cliente.Estado === 'Completada') {
+        } else if (cliente.estado === 'Completada') {
             barraProgreso.style.width = '100%';
         }
     } catch (error) {
