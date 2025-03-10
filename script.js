@@ -26,6 +26,6 @@ document.getElementById('verificationForm').addEventListener('submit', async fun
     } catch (error) {
         console.error('Error:', error);
         document.getElementById('estado').textContent = 'Cliente no encontrado.';
-        document.getElementById('progreso').style.width = '0%';
+        document.getElementById('progreso').style.width = '33%';
     }
 });
