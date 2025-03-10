@@ -16,6 +16,12 @@ document.getElementById('verificationForm').addEventListener('submit', async fun
 
         // Mostrar el estado del cliente
         document.getElementById('estado').textContent = `Estado: ${cliente.estado}`;
+        const barraProgreso = document.getElementById('progreso');
+        if (cliente.Estado === 'Inicial')
+        {
+            barraProgreso.style.width = '33%';
+        }
+
         
     } catch (error) {
         console.error('Error:', error);
