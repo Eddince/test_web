@@ -22,10 +22,14 @@ document.getElementById('verificationForm').addEventListener('submit', async fun
         {
             barraProgreso.style.width = '33%';
         }
-        else
-        {
-            console.error('Estado no reconocido:', estado);
-        }
+        else if (estado === 'En desarrollo') 
+            {
+            barraProgreso.style.width = '66%';
+            } 
+        else if (estado === 'Completada') 
+            {
+            barraProgreso.style.width = '100%';
+            }
 
         
     } catch (error) {
