@@ -30,7 +30,7 @@ function mostrarClientes() {
                 <option value="En desarrollo" ${cliente.estado === 'En desarrollo' ? 'selected' : ''}>En desarrollo</option>
                 <option value="Completada" ${cliente.estado === 'Completada' ? 'selected' : ''}>Completada</option>
             </select>
-            <button onclick="eliminarCliente('${cliente.id}')">Eliminar</button>
+            <button onclick="eliminarCliente('${cliente.codigo}')">Eliminar</button>
         `;
         listaClientes.appendChild(clienteDiv);
     });
@@ -38,14 +38,14 @@ function mostrarClientes() {
 
 // Función para agregar un nuevo cliente
 document.getElementById('agregarCliente').addEventListener('click', () => {
-    datosClientes.push({ Nombre: '', Código: '', Estado: 'Inicial' });
+    datosClientes.push({id: null,nombre: '', codigo: '', estado: 'Inicial' });
     mostrarClientes();
 });
 
 // Función para eliminar un cliente
-async function eliminarCliente(id) {
+async function eliminarCliente(codigo) {
     try {
-        await fetch(`${API_URL}/clientes/${id}`, { method: 'DELETE' });
+        await fetch(`${API_URL}/delete/${codigo}`, { method: 'DELETE' });
         cargarClientes(); // Recargar la lista después de eliminar
     } catch (error) {
         console.error('Error:', error);
@@ -57,21 +57,23 @@ document.getElementById('guardarCambios').addEventListener('click', async () => 
     try {
         for (let i = 0; i < datosClientes.length; i++) {
             const cliente = {
-                Nombre: document.getElementById(`nombre-${i}`).value,
-                Código: document.getElementById(`codigo-${i}`).value,
-                Estado: document.getElementById(`estado-${i}`).value,
+                id: datosClientes[i].id,
+                nombre: document.getElementById(`nombre-${i}`).value,
+                codigo: document.getElementById(`codigo-${i}`).value,
+                estado: document.getElementById(`estado-${i}`).value,
             };
 
-            if (datosClientes[i].id) {
+            if (cliente.id) {
                 // Actualizar cliente existente
-                await fetch(`${API_URL}/clientes/${datosClientes[i].id}`, {
+                await fetch(`${API_URL}/actualizar/`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(cliente),
                 });
             } else {
+               
                 // Crear nuevo cliente
-                await fetch(`${API_URL}/clientes`, {
+                await fetch(`${API_URL}/cliente/`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(cliente),
