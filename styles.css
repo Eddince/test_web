@@ -62,6 +62,7 @@ button:hover {
 }
 
 #barraProgreso {
+    width: 100%;
     background-color: #e0e0e0;
     border-radius: 5px;
     overflow: hidden;

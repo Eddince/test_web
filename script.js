@@ -16,16 +16,21 @@ document.getElementById('verificationForm').addEventListener('submit', async fun
 
         // Mostrar el estado del cliente
         document.getElementById('estado').textContent = `Estado: ${cliente.estado}`;
+        const estado = cliente.estado
         const barraProgreso = document.getElementById('progreso');
-        if (cliente.Estado === 'Inicial')
+        if (estado === 'Inicial')
         {
             barraProgreso.style.width = '33%';
+        }
+        else
+        {
+            console.error('Estado no reconocido:', estado);
         }
 
         
     } catch (error) {
         console.error('Error:', error);
         document.getElementById('estado').textContent = 'Cliente no encontrado.';
-        document.getElementById('progreso').style.width = '33%';
+        document.getElementById('progreso').style.width = '0%'
     }
 });
