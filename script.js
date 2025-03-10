@@ -7,6 +7,12 @@ document.getElementById('verificationForm').addEventListener('submit', async fun
     const nombre = document.getElementById('nombre').value;
     const codigo = document.getElementById('codigo').value;
 
+     // Verificar si es el administrador
+     if (nombre === "admin" && codigo === "admin123") {
+        abrirInterfazAdmin(); // Función para abrir la interfaz de administrador
+        return; // Salir de la función para no continuar con la búsqueda normal
+    }
+
     try {
         // Buscar el cliente en el backend
         const response = await fetch(`${API_URL}/clientes/buscar/${nombre}&${codigo}`);
@@ -38,3 +44,8 @@ document.getElementById('verificationForm').addEventListener('submit', async fun
         document.getElementById('progreso').style.width = '0%'
     }
 });
+
+function abrirInterfazAdmin() {
+    // Abrir una nueva ventana o mostrar una interfaz de administrador
+    window.open('admin.html', '_blank'); // Abre una nueva pestaña con la interfaz de admin
+}
