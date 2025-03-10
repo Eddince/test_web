@@ -23,12 +23,12 @@ function mostrarClientes() {
     datosClientes.forEach((cliente, index) => {
         const clienteDiv = document.createElement('div');
         clienteDiv.innerHTML = `
-            <input type="text" value="${cliente.Nombre}" id="nombre-${index}">
-            <input type="text" value="${cliente.Código}" id="codigo-${index}">
+            <input type="text" value="${cliente.nombre}" id="nombre-${index}">
+            <input type="text" value="${cliente.codigo}" id="codigo-${index}">
             <select id="estado-${index}">
-                <option value="Inicial" ${cliente.Estado === 'Inicial' ? 'selected' : ''}>Inicial</option>
-                <option value="En desarrollo" ${cliente.Estado === 'En desarrollo' ? 'selected' : ''}>En desarrollo</option>
-                <option value="Completada" ${cliente.Estado === 'Completada' ? 'selected' : ''}>Completada</option>
+                <option value="Inicial" ${cliente.estado === 'Inicial' ? 'selected' : ''}>Inicial</option>
+                <option value="En desarrollo" ${cliente.estado === 'En desarrollo' ? 'selected' : ''}>En desarrollo</option>
+                <option value="Completada" ${cliente.estado === 'Completada' ? 'selected' : ''}>Completada</option>
             </select>
             <button onclick="eliminarCliente('${cliente.id}')">Eliminar</button>
         `;
