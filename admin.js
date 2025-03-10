@@ -23,7 +23,7 @@ function mostrarClientes() {
     datosClientes.forEach((cliente, index) => {
         const clienteDiv = document.createElement('div');
         clienteDiv.innerHTML = `
-            <input type="text" value="${cliente.nombre}" id="nombre-${index}">
+            <input type="text" value="${datosClientes.nombre}" id="nombre-${index}">
             <input type="text" value="${cliente.codigo}" id="codigo-${index}">
             <select id="estado-${index}">
                 <option value="Inicial" ${cliente.estado === 'Inicial' ? 'selected' : ''}>Inicial</option>
