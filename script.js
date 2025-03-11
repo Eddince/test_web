@@ -1,5 +1,5 @@
 // script.js
-const API_URL = 'http://127.0.0.1:8000'; // URL de tu backend en Render
+const API_URL = 'https://backend-imp.onrender.com'; // URL de tu backend en Render
 
 document.getElementById('verificationForm').addEventListener('submit', async function (e) {
     e.preventDefault(); // Evita que el formulario se envíe
