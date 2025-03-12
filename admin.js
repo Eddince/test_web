@@ -1,5 +1,5 @@
 // admin.js
-const API_URL = 'https://backendimp-production.up.railway.app'; // URL de tu backend en Render
+const API_URL = 'https://backend-imp.onrender.com'; // URL de tu backend en Render
 
 let datosClientes = [];
 
