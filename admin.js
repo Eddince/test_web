@@ -107,8 +107,13 @@ async function guardarDatosEncorreo() {
     try {
         const response = await fetch(`${API_URL}/enviar-correo`);
         if (!response.ok) throw new Error('Error');
+
+        if (response.ok)
+        alert('Correo enviado correctamente');
         
-        } catch (error) {
+        } 
+        catch (error) {
         console.error('Error:', error);
     }
+    
 }
