@@ -1,5 +1,5 @@
 // script.js
-const API_URL = 'https://backend-imp.onrender.com'; // URL de tu backend en Render
+const API_URL = 'https://backend-mongo-1udy.onrender.com'; // URL de tu backend en Render
 
 document.getElementById('verificationForm').addEventListener('submit', async function (e) {
     e.preventDefault(); // Evita que el formulario se envíe
@@ -15,7 +15,7 @@ document.getElementById('verificationForm').addEventListener('submit', async fun
 
     try {
         // Buscar el cliente en el backend
-        const response = await fetch(`${API_URL}/clientes/buscar/${codigo}`);
+        const response = await fetch(`${API_URL}/mongo_codigo/${codigo}`);
         if (!response.ok) throw new Error('Error al principio');
 
         const cliente = await response.json();
