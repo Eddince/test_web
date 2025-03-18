@@ -1,12 +1,12 @@
 // admin.js
-const API_URL = 'https://backend-imp.onrender.com'; // URL de tu backend en Render
+const API_URL = 'https://backend-mongo-1udy.onrender.com'; // URL de tu backend en Render
 
 let datosClientes = [];
 
 // Función para cargar los clientes desde el backend
 async function cargarClientes() {
     try {
-        const response = await fetch(`${API_URL}/clientes`);
+        const response = await fetch(`${API_URL}/mongo_clientes`);
         if (!response.ok) throw new Error('Error al cargar los clientes');
         datosClientes = await response.json();
         mostrarClientes();
@@ -65,7 +65,7 @@ document.getElementById('guardarCambios').addEventListener('click', async () => 
 
             if (cliente.id) {
                 // Actualizar cliente existente
-                await fetch(`${API_URL}/actualizar/`, {
+                await fetch(`${API_URL}/actualizar_mongo/`, {
                     method: 'PUT',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(cliente),
@@ -73,7 +73,7 @@ document.getElementById('guardarCambios').addEventListener('click', async () => 
             } else {
                
                 // Crear nuevo cliente
-                await fetch(`${API_URL}/cliente/`, {
+                await fetch(`${API_URL}/mongodb/`, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json' },
                     body: JSON.stringify(cliente),
@@ -81,7 +81,7 @@ document.getElementById('guardarCambios').addEventListener('click', async () => 
             }
         }
         alert('Cambios guardados correctamente');
-        guardarDatosEncorreo()
+        
         cargarClientes(); // Recargar la lista después de guardar
 
         
@@ -101,19 +101,4 @@ document.getElementById('guardarCambios').addEventListener('click', async () => 
 // Cargar los clientes al iniciar
 cargarClientes();
 
-// Función para guardar los datos en un archivo .txt en formato JSON y enviarlo por correo
-async function guardarDatosEncorreo() {
-     
-    try {
-        const response = await fetch(`${API_URL}/enviar-correo`);
-        if (!response.ok) throw new Error('Error');
 
-        if (response.ok)
-        alert('Correo enviado correctamente');
-        
-        } 
-        catch (error) {
-        console.error('Error:', error);
-    }
-    
-}
