@@ -1,5 +1,5 @@
 // script.js
-const API_URL = 'https://backend-mongo-5bn2.onrender.com'; // URL de tu backend en Render
+const API_URL = 'https://backend-mongo-hvgu.onrender.com'; // URL de tu backend en Render
 
 document.getElementById('verificationForm').addEventListener('submit', async function (e) {
     e.preventDefault(); // Evita que el formulario se envíe
